@@ -11,6 +11,7 @@ export default function HomePage() {
         <li><a href="/marketplace">Marketplace</a></li>
         <li><a href="/ai-studio">AI Studio</a></li>
         <li><a href="/visitors">Visitors</a></li>
+        <li><a href="/general-users">General Users</a></li>
         <li><a href="/admin">Admin</a></li>
       </ul>
     </main>
