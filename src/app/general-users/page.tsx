@@ -15,6 +15,7 @@ export default function GeneralUsersPage() {
         <li>Notifications</li>
         <li>Privacy Controls</li>
         <li>Security Settings</li>
+        <a href="/general-users">General Users</a>
       </ul>
 
       <h2>User Activity</h2>
