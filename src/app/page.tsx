@@ -1,58 +1,22 @@
 export default function Home() {
-  const routines = [
-    "Create",
-    "Chat",
-    "Post",
-    "Share",
-    "Like",
-    "Comment",
-    "Earn Rewards",
-    "Build Community",
-  ];
-
   return (
-    <main className="min-h-screen bg-black text-white overflow-hidden">
-      <section className="px-6 py-10 text-center">
-        <h1 className="text-5xl font-bold mb-4">Amosclaud</h1>
-        <p className="text-lg text-gray-300">
-          Social entertainment platform for creators, developers, and communities.
-        </p>
-      </section>
+    <main style={{ padding: "40px", fontFamily: "Arial", background: "#050816", color: "white", minHeight: "100vh" }}>
+      <h1>Amosclaud</h1>
+      <p>Social entertainment, creator tools, services, and admin platform.</p>
 
-      <section className="relative h-[420px] flex items-center justify-center">
-        <div className="moon">
-          <span>🌙</span>
-        </div>
+      <div style={{ marginTop: "30px" }}>
+        <a href="/feed" style={{ color: "white", marginRight: "20px" }}>Feed</a>
+        <a href="/services" style={{ color: "white", marginRight: "20px" }}>Services</a>
+        <a href="/packages" style={{ color: "white", marginRight: "20px" }}>Packages</a>
+        <a href="/admin" style={{ color: "white" }}>Admin Hub</a>
+      </div>
 
-        <div className="dance-floor">
-          {routines.map((item, index) => (
-            <div
-              key={item}
-              className="code-jar"
-              style={{ animationDelay: `${index * 0.25}s` }}
-            >
-              <div className="jar-top"></div>
-              <code>{item}</code>
-            </div>
-          ))}
-        </div>
-      </section>
+      <section style={{ marginTop: "50px" }}>
+        <h2>Public Hub</h2>
+        <p>For users to post, connect, chat, create, and enjoy entertainment.</p>
 
-      <section className="grid md:grid-cols-3 gap-6 px-6 pb-16 max-w-6xl mx-auto">
-        <div className="card">
-          <h2>Create</h2>
-          <p>Users can upload photos, videos, posts, and creative content.</p>
-        </div>
-
-        <div className="card">
-          <h2>Connect</h2>
-          <p>Chat, follow, comment, like, and build social communities.</p>
-        </div>
-
-        <div className="card">
-          <h2>Grow</h2>
-          <p>Reward engagement and support creators through platform features.</p>
-        </div>
+        <h2>Admin Hub</h2>
+        <p>For private platform control, moderation, users, reports, and settings.</p>
       </section>
     </main>
   );
