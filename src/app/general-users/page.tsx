@@ -4,8 +4,7 @@ export default function GeneralUsersPage() {
       <h1>Amosclaud User Dashboard</h1>
 
       <p>
-        Manage your account, content, purchases, projects,
-        and platform activity.
+        Manage your account, content, purchases, projects, and platform activity.
       </p>
 
       <h2>Account Center</h2>
@@ -15,7 +14,6 @@ export default function GeneralUsersPage() {
         <li>Notifications</li>
         <li>Privacy Controls</li>
         <li>Security Settings</li>
-        <a href="/general-users">General Users</a>
       </ul>
 
       <h2>User Activity</h2>
@@ -30,8 +28,10 @@ export default function GeneralUsersPage() {
       <nav>
         <a href="/">Home</a> |{" "}
         <a href="/feed">Feed</a> |{" "}
+        <a href="/explore">Explore</a> |{" "}
         <a href="/creator">Creator Hub</a> |{" "}
-        <a href="/marketplace">Marketplace</a>
+        <a href="/marketplace">Marketplace</a> |{" "}
+        <a href="/ai-studio">AI Studio</a>
       </nav>
     </main>
   );
