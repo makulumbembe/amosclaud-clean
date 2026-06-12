@@ -1,3 +1,9 @@
 export default function ExplorePage() {
-  return <h1>Explore</h1>;
+  return (
+    <main style={{ padding: "40px" }}>
+      <h1>Explore</h1>
+      <p>Discover creators, posts, videos, communities, and trending content.</p>
+      <a href="/">Back Home</a>
+    </main>
+  );
 }
