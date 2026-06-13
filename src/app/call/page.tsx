@@ -1,18 +1,62 @@
 export default function CallsPage() {
   return (
-    <main style={{ minHeight: "100vh", background: "#000", color: "#fff", padding: 24 }}>
-      <h1>Calls</h1>
+    <main
+      style={{
+        minHeight: "100vh",
+        background: "#000",
+        color: "#fff",
+        padding: "24px",
+      }}
+    >
+      <h1>📞 Calls</h1>
+
       <p>Audio and video calls for Amosclaud users.</p>
 
-      <section style={{ background: "#111", padding: 20, borderRadius: 20, marginTop: 20 }}>
+      <section
+        style={{
+          background: "#111",
+          padding: "20px",
+          borderRadius: "16px",
+          marginTop: "20px",
+        }}
+      >
         <h2>📞 Start Call</h2>
-        <button style={{ padding: 16, borderRadius: 14, fontWeight: 900 }}>
-          Start Audio Call
-        </button>
-        <button style={{ padding: 16, borderRadius: 14, fontWeight: 900, marginLeft: 10 }}>
-          Start Video Call
-        </button>
+
+        <div
+          style={{
+            display: "flex",
+            gap: "12px",
+            flexWrap: "wrap",
+          }}
+        >
+          <a href="/call/audio">
+            <button
+              style={{
+                padding: "16px",
+                borderRadius: "12px",
+                cursor: "pointer",
+              }}
+            >
+              Start Audio Call
+            </button>
+          </a>
+
+          <a href="/call/video">
+            <button
+              style={{
+                padding: "16px",
+                borderRadius: "12px",
+                cursor: "pointer",
+              }}
+            >
+              Start Video Call
+            </button>
+          </a>
+        </div>
       </section>
     </main>
   );
 }
+
+
+
