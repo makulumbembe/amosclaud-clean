@@ -5,12 +5,29 @@ export default function SettingsPage() {
       items: ["Profile", "Username", "Email & phone", "Password", "Verification"],
     },
     {
-      title: "Business",
-      items: ["Creator dashboard", "Monetization", "Subscriptions", "Payments", "Marketplace"],
+      title: "Chat Settings",
+      items: [
+        "Message requests",
+        "Who can message me",
+        "Read receipts",
+        "Online status",
+        "Push notifications",
+        "Blocked chats",
+        "Archived chats",
+        "AI chat assistant",
+      ],
+    },
+    {
+      title: "Notifications",
+      items: ["Likes", "Comments", "Followers", "Messages", "AI updates"],
     },
     {
       title: "Privacy",
-      items: ["Private account", "Blocked users", "Messages", "Activity status"],
+      items: ["Private account", "Blocked users", "Activity status", "Story privacy"],
+    },
+    {
+      title: "Business & Money",
+      items: ["Creator dashboard", "Monetization", "Subscriptions", "Payments", "Marketplace"],
     },
     {
       title: "AI Tools",
@@ -27,25 +44,25 @@ export default function SettingsPage() {
       <header style={header}>
         <a href="/profile" style={back}>←</a>
         <h1 style={title}>Settings</h1>
-        <span />
+        <a href="/" style={home}>Home</a>
       </header>
 
       <section style={profileCard}>
         <div style={avatar}>A</div>
-        <div>
+        <div style={{ flex: 1 }}>
           <h2 style={{ margin: 0 }}>Amosclaud</h2>
-          <p style={{ margin: "4px 0 0", color: "#777" }}>Business & creator platform</p>
+          <p style={{ margin: "4px 0 0", color: "#777" }}>@amosclaud</p>
         </div>
+        <button style={editButton}>Edit</button>
       </section>
 
       {sections.map((section) => (
         <section key={section.title} style={sectionBox}>
           <h3 style={sectionTitle}>{section.title}</h3>
-
           {section.items.map((item) => (
             <div key={item} style={row}>
               <span>{item}</span>
-              <span style={{ color: "#999" }}>›</span>
+              <span style={{ color: "#999", fontSize: 26 }}>›</span>
             </div>
           ))}
         </section>
@@ -79,8 +96,15 @@ const header = {
 
 const back = {
   color: "#111",
-  fontSize: "32px",
+  fontSize: "34px",
   textDecoration: "none",
+  fontWeight: 900,
+};
+
+const home = {
+  color: "#2563eb",
+  textDecoration: "none",
+  fontWeight: 900,
 };
 
 const title = {
@@ -92,31 +116,40 @@ const profileCard = {
   margin: "16px",
   padding: "16px",
   background: "white",
-  borderRadius: "22px",
+  borderRadius: "24px",
   display: "flex",
   alignItems: "center",
   gap: "14px",
-  boxShadow: "0 6px 20px rgba(0,0,0,0.06)",
+  boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
 };
 
 const avatar = {
-  width: "58px",
-  height: "58px",
+  width: "62px",
+  height: "62px",
   borderRadius: "50%",
-  background: "linear-gradient(135deg,#ffcc00,#ff0080)",
+  background: "linear-gradient(135deg,#ffcc00,#ff0080,#7c3aed)",
   color: "white",
   display: "grid",
   placeItems: "center",
-  fontSize: "28px",
+  fontSize: "30px",
+  fontWeight: 900,
+};
+
+const editButton = {
+  border: "none",
+  background: "#111",
+  color: "white",
+  borderRadius: "999px",
+  padding: "10px 16px",
   fontWeight: 900,
 };
 
 const sectionBox = {
   margin: "16px",
   background: "white",
-  borderRadius: "22px",
+  borderRadius: "24px",
   overflow: "hidden",
-  boxShadow: "0 6px 20px rgba(0,0,0,0.05)",
+  boxShadow: "0 8px 24px rgba(0,0,0,0.06)",
 };
 
 const sectionTitle = {
@@ -135,7 +168,7 @@ const row = {
   justifyContent: "space-between",
   alignItems: "center",
   fontSize: "16px",
-  fontWeight: 700,
+  fontWeight: 800,
 };
 
 const logout = {
@@ -143,7 +176,7 @@ const logout = {
   width: "calc(100% - 32px)",
   padding: "16px",
   border: "none",
-  borderRadius: "18px",
+  borderRadius: "20px",
   background: "#ff3b30",
   color: "white",
   fontSize: "17px",
