@@ -1,21 +1,22 @@
-import { NextResponse } from "next/server";
+const response = await client.responses.create({
+  model: "gpt-4.1-mini",
+  input: `
+You are an expert software engineer.
 
-export async function POST(req: Request) {
-  try {
-    const { prompt, language } = await req.json();
+Rules:
+- Generate code in the language requested.
+- If language is TypeScript, return TypeScript.
+- If language is JavaScript, return JavaScript.
+- If language is React or Next.js, return valid React/Next.js code.
+- Return ONLY code.
+- Do not explain.
+- Do not use markdown code fences.
+- Make the code production ready.
 
-    return NextResponse.json({
-      success: true,
-      language,
-      code: `// Generated ${language} code
-console.log("Hello from Amosclaud AI");
+Language:
+${language}
+
+Request:
+${prompt}
 `,
-      prompt,
-    });
-  } catch (error) {
-    return NextResponse.json(
-      { success: false, error: "Failed to generate code" },
-      { status: 500 }
-    );
-  }
-}
+});
