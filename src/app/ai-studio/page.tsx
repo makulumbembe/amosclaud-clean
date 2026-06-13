@@ -1,96 +1,170 @@
-"use client";
-
-import { useState } from "react";
-
 export default function AIStudioPage() {
-  const [prompt, setPrompt] = useState("");
-  const [answer, setAnswer] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  async function askAI() {
-    setLoading(true);
-    setAnswer("");
-
-    try {
-      const res = await fetch("/api/ai", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ prompt }),
-      });
-
-      const data = await res.json();
-
-      if (!data.success) {
-        setAnswer(data.error || "AI failed.");
-      } else {
-        setAnswer(data.answer);
-      }
-    } catch {
-      setAnswer("Connection failed.");
-    }
-
-    setLoading(false);
-  }
+  const features = [
+    {
+      title: "Generate Code",
+      text: "Create React, Next.js, API routes, and app components.",
+      icon: "💻",
+      href: "/ai-studio/ai-code",
+    },
+    {
+      title: "Generate Apps",
+      text: "Build app ideas, screens, tools, and full project plans.",
+      icon: "📱",
+      href: "/ai-studio/coding",
+    },
+    {
+      title: "Generate Images",
+      text: "Create image prompts, designs, logos, and visual ideas.",
+      icon: "🎨",
+      href: "/ai-studio/image",
+    },
+    {
+      title: "Generate Websites",
+      text: "Create landing pages, business sites, and social pages.",
+      icon: "🌐",
+      href: "/ai-studio/content",
+    },
+    {
+      title: "Auto Deploy",
+      text: "Fix build errors and prepare apps for deployment.",
+      icon: "🚀",
+      href: "/ai-studio/auto-deploy",
+    },
+    {
+      title: "AI Marketplace",
+      text: "Create products, prompts, services, and sales offers.",
+      icon: "🛒",
+      href: "/ai-studio/marketplace",
+    },
+  ];
 
   return (
-    <main style={{ minHeight: "100vh", background: "#050816", color: "white", padding: 24 }}>
-      <h1 style={{ fontSize: 42, fontWeight: 900 }}>Amosclaud AI Studio</h1>
-      <p style={{ color: "#94a3b8" }}>
-        Ask AI to create business ideas, posts, code, plans, ads, and proposals.
-      </p>
+    <main style={page}>
+      <section style={hero}>
+        <div style={robot}>🤖</div>
+        <div>
+          <h1 style={title}>Amos AI</h1>
+          <p style={subtitle}>Generate code, apps, images, and websites.</p>
+        </div>
+      </section>
 
-      <textarea
-        value={prompt}
-        onChange={(e) => setPrompt(e.target.value)}
-        placeholder="Example: Create a business plan for Amosclaud..."
-        style={{
-          width: "100%",
-          minHeight: 160,
-          marginTop: 24,
-          padding: 16,
-          borderRadius: 16,
-          border: "1px solid #334155",
-          background: "#111827",
-          color: "white",
-          fontSize: 16,
-        }}
-      />
+      <section style={quickCard}>
+        <h2 style={quickTitle}>What do you want to create?</h2>
+        <p style={quickText}>
+          Choose an AI tool below and let Amosclaud help you build faster.
+        </p>
+      </section>
 
-      <button
-        onClick={askAI}
-        disabled={loading || !prompt.trim()}
-        style={{
-          marginTop: 16,
-          width: "100%",
-          padding: 16,
-          borderRadius: 14,
-          border: "none",
-          background: "#facc15",
-          color: "black",
-          fontWeight: 900,
-          fontSize: 18,
-        }}
-      >
-        {loading ? "Thinking..." : "Generate with Real AI"}
-      </button>
-
-      {answer && (
-        <section
-          style={{
-            marginTop: 24,
-            padding: 20,
-            borderRadius: 18,
-            background: "#111827",
-            border: "1px solid #334155",
-            whiteSpace: "pre-wrap",
-            lineHeight: 1.7,
-          }}
-        >
-          {answer}
-        </section>
-      )}
+      <section style={grid}>
+        {features.map((item) => (
+          <a key={item.title} href={item.href} style={card}>
+            <div style={icon}>{item.icon}</div>
+            <h3 style={cardTitle}>{item.title}</h3>
+            <p style={cardText}>{item.text}</p>
+            <span style={open}>Open →</span>
+          </a>
+        ))}
+      </section>
     </main>
   );
 }
+
+const page = {
+  minHeight: "100vh",
+  background: "#000",
+  color: "white",
+  padding: "24px",
+  paddingBottom: "100px",
+  fontFamily: "Arial, sans-serif",
+};
+
+const hero = {
+  display: "flex",
+  alignItems: "center",
+  gap: "16px",
+  background: "#ffd400",
+  color: "#000",
+  borderRadius: "28px",
+  padding: "22px",
+  boxShadow: "10px 10px 0 #ff0080",
+};
+
+const robot = {
+  width: "64px",
+  height: "64px",
+  borderRadius: "20px",
+  background: "#000",
+  display: "grid",
+  placeItems: "center",
+  fontSize: "34px",
+};
+
+const title = {
+  margin: 0,
+  fontSize: "38px",
+  fontWeight: 900,
+};
+
+const subtitle = {
+  margin: "6px 0 0",
+  fontWeight: 800,
+};
+
+const quickCard = {
+  marginTop: "24px",
+  background: "#111",
+  border: "3px solid #ffd400",
+  borderRadius: "24px",
+  padding: "20px",
+};
+
+const quickTitle = {
+  margin: 0,
+  fontSize: "24px",
+  fontWeight: 900,
+};
+
+const quickText = {
+  color: "#ccc",
+  fontWeight: 700,
+};
+
+const grid = {
+  display: "grid",
+  gridTemplateColumns: "1fr",
+  gap: "16px",
+  marginTop: "22px",
+};
+
+const card = {
+  background: "#fff",
+  color: "#000",
+  textDecoration: "none",
+  borderRadius: "24px",
+  padding: "20px",
+  border: "4px solid #000",
+  boxShadow: "8px 8px 0 #ffd400",
+};
+
+const icon = {
+  fontSize: "36px",
+};
+
+const cardTitle = {
+  margin: "10px 0 4px",
+  fontSize: "24px",
+  fontWeight: 900,
+};
+
+const cardText = {
+  margin: 0,
+  color: "#444",
+  fontWeight: 700,
+  lineHeight: 1.5,
+};
+
+const open = {
+  display: "inline-block",
+  marginTop: "14px",
+  fontWeight: 900,
+};
