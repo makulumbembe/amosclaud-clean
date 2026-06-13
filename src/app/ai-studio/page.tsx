@@ -1,12 +1,16 @@
 export default function AIStudioPage() {
   const tools = [
-  {
-    {
-      title: "AI Assistant Builder",
-      description:
-        "Create custom AI assistants for support, business, and creator workflows.",
-      items: ["Create Assistant", "My Assistants", "Deploy Assistant"],
-      link: "/creator",
+      {
+  title: "AI Assistant Builder",
+  description: "Create custom AI assistants for support, business, and creator workflows.",
+  items: ["Create Assistant", "My Assistants", "Deploy Assistant"],
+  link: "/creator",
+},
+      
+  
+        
+      
+
     },
     {
       title: "AI Image Studio",
