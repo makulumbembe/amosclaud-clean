@@ -1,4 +1,3 @@
-
 import OpenAI from "openai";
 import { NextResponse } from "next/server";
 
@@ -10,33 +9,44 @@ export async function POST(req: Request) {
   try {
     const { prompt, language } = await req.json();
 
-    if (!prompt) {
-      return NextResponse.json({ error: "Prompt is required" }, { status: 400 });
+    if (!process.env.OPENAI_API_KEY) {
+      return NextResponse.json(
+        { success: false, error: "Missing OPENAI_API_KEY" },
+        { status: 500 }
+      );
     }
 
-    const response = await client.chat.completions.create({
+    if (!prompt) {
+      return NextResponse.json(
+        { success: false, error: "Prompt is required" },
+        { status: 400 }
+      );
+    }
+
+    const response = await client.responses.create({
       model: "gpt-4.1-mini",
-      messages: [
+      input: [
         {
           role: "system",
           content:
-            "You are Amosclaud AI Code Generator. Return only clean working code. No markdown.",
+            "You are Amosclaud AI Code Generator. Return only clean working code. No markdown. No explanations.",
         },
         {
           role: "user",
-          content: `Create ${language || "TypeScript"} code for: ${prompt}`,
+          content: `Create ${language || "JavaScript"} code for: ${prompt}`,
         },
       ],
-      temperature: 0.2,
     });
 
     return NextResponse.json({
       success: true,
-      code: response.choices[0]?.message?.content || "",
+      code: response.output_text || "",
     });
   } catch (error) {
+    console.error(error);
+
     return NextResponse.json(
-      { error: "AI code generation failed" },
+      { success: false, error: "AI generation failed" },
       { status: 500 }
     );
   }
