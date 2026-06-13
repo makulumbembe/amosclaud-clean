@@ -1,5 +1,9 @@
-const response = await client.responses.create({
-  model: "gpt-4.1-mini",
-  input: `...`,
-  max_output_tokens: 900,
-});
+export async function POST(req: Request) {
+  const body = await req.json();
+
+  return Response.json({
+    success: true,
+    message: "AI Code API Working",
+    data: body,
+  });
+}
