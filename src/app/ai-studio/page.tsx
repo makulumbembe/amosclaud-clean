@@ -107,11 +107,15 @@ export default function AIStudioPage() {
                   cursor: "pointer",
                 }}
               >
-                Open Tool
-              </button>
-            </div>
-          ))}
-        </div>
+                <a href="/ai-studio/coding">
+  <button>
+    Open Tool
+  </button>
+</a>
+              
+            
+          
+    
 
         <section
           style={{
