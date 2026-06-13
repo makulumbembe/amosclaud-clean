@@ -1,35 +1,23 @@
-export default function FeedPage() {
-  return (
-    <main
-      style={{
-        minHeight: "100vh",
-        background: "#000",
-        color: "#fff",
-        padding: "20px",
-      }}
-    >
-      <h1>AMOSCLAUD FEED</h1>
 
-      <div
-        style={{
-          background: "#111",
-          border: "3px solid #ffd400",
-          borderRadius: "20px",
-          padding: "20px",
-          marginTop: "20px",
-        }}
-      >
-        <h2>🤖 Amos AI</h2>
-
-        <p>Your creative AI assistant</p>
-
-        <ul>
-          <li>Generate code</li>
-          <li>Generate apps</li>
-          <li>Generate images</li>
-          <li>Generate websites</li>
-        </ul>
-      </div>
-    </main>
-  );
-}
+const posts = [
+  {
+    id: 1,
+    name: "GeorgeKB Bito",
+    username: "@georgekbbito",
+    verified: true,
+    text: "Building the future of Amosclaud 🚀",
+    likes: 64,
+    comments: 12,
+    shares: 5,
+  },
+  {
+    id: 2,
+    name: "Amos AI",
+    username: "@amosai",
+    verified: true,
+    text: "New AI Website Generator is now live.",
+    likes: 240,
+    comments: 48,
+    shares: 33,
+  },
+];
