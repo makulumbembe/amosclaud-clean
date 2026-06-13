@@ -1,25 +1,9 @@
-const response = await client.responses.create({
-  model: "gpt-4.1-mini",
-  input: `
-You are an expert software engineer.
+export async function POST(req: Request) {
+  const body = await req.json();
 
-Analyze the code and error message.
-
-Rules:
-- Fix the code completely.
-- Return ONLY the corrected code.
-- Preserve the original language.
-- Do not explain the fix.
-- Do not use markdown code fences.
-- If multiple fixes are needed, apply all of them.
-
-Language:
-${language}
-
-Error:
-${error || "No error provided"}
-
-Code:
-${code}
-`,
-});
+  return Response.json({
+    success: true,
+    message: "AI Fix API Working",
+    data: body,
+  });
+}
