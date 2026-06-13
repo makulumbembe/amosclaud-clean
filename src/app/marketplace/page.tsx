@@ -1,8 +1,8 @@
 export default function GamesMarketplacePage() {
   return (
-    <main>
-      <h1>Games Marketplace</h1>
-      <p>Games page is loading.</p>
+    <main style={{ padding: "2rem" }}>
+      <h1>AI Games Marketplace</h1>
+      <p>Browse, publish, and manage AI-powered games.</p>
     </main>
   );
 }
