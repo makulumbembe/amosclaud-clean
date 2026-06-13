@@ -1,35 +1,41 @@
-/* Mobile overflow fix */
+/* BLACK & WHITE TEST MODE */
 
-.chip-row,
-.tabs-row,
-.category-row {
-  display: flex;
-  gap: 14px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  max-width: 100%;
-  padding: 0 28px 8px 0;
-  scrollbar-width: none;
-}
-
-.chip-row::-webkit-scrollbar,
-.tabs-row::-webkit-scrollbar,
-.category-row::-webkit-scrollbar {
-  display: none;
-}
-
-.chip-row > *,
-.tabs-row > *,
-.category-row > * {
-  flex: 0 0 auto;
-}
-
-html,
 body {
-  max-width: 100%;
-  overflow-x: hidden;
+  background: #000000 !important;
+  color: #ffffff !important;
 }
 
-* {
-  box-sizing: border-box;
+.card,
+.tile,
+.panel,
+.result-card,
+.search-card,
+.studio-card,
+.hub-card,
+.admin-card {
+  background: #111111 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+button {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+}
+
+input,
+textarea,
+select {
+  background: #ffffff !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+}
+
+a {
+  color: #ffffff !important;
+}
+
+img {
+  filter: grayscale(100%);
 }
