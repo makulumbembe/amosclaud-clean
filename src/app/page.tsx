@@ -1,4 +1,15 @@
 export default function HomePage() {
+  const link = {
+    display: "block",
+    background: "#ffd400",
+    color: "#000",
+    padding: "16px",
+    borderRadius: "16px",
+    textDecoration: "none",
+    fontWeight: 900,
+    textAlign: "center" as const,
+  };
+
   return (
     <main
       style={{
@@ -21,14 +32,3 @@ export default function HomePage() {
     </main>
   );
 }
-
-const link = {
-  display: "block",
-  background: "#ffd400",
-  color: "#000",
-  padding: "16px",
-  borderRadius: "16px",
-  textDecoration: "none",
-  fontWeight: 900,
-  textAlign: "center" as const,
-};
