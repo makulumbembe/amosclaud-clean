@@ -1,8 +1,8 @@
-export default function GamesMarketplacePage() {
+export default function AIStudioMarketplacePage() {
   return (
-    <main style={{ padding: "2rem" }}>
-      <h1>AI Games Marketplace</h1>
-      <p>Browse, publish, and manage AI-powered games.</p>
+    <main style={{ padding: "30px" }}>
+      <h1>AI Studio Marketplace</h1>
+      <p>Explore the AI Studio marketplace.</p>
     </main>
   );
 }
