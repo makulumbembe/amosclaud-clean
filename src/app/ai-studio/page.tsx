@@ -116,13 +116,17 @@ export default function AIStudioPage() {
                   borderRadius: "10px",
                   fontWeight: "bold",
                   cursor: "pointer",
-                }}
-              >
-                Open Tool
-              </button>
-            </a>
-          </div>
-        ))}
+                <a href={tool.link}>
+  <button>
+    Open Tool
+  </button>
+</a>
+              
+              
+              
+            
+          
+    
       </div>
 
       <section
