@@ -1,16 +1,8 @@
-export default function AdminHubPage() {
+export default function AiCodePage() {
   return (
-    <main style={{ padding: "2rem" }}>
-      <h1>🛠️ Admin Hub</h1>
-
-      <p>Manage AI, social tools, business tools and settings.</p>
-
-      <ul>
-        <li>🤖 AI Tools</li>
-        <li>👥 Social Tools</li>
-        <li>💼 Business Tools</li>
-        <li>⚙️ Settings</li>
-      </ul>
+    <main style={{ padding: "24px" }}>
+      <h1>AI Code</h1>
+      <p>Generate code with Amosclaud AI.</p>
     </main>
   );
 }
