@@ -1,18 +1,4 @@
-import "./globals.css";
-
 export const metadata = {
-  title: "Emergent | Fullstack App",
-  description: "...",
+  title: "Amosclaud AI",
+  description: "International AI business platform for creators, code, media, services, and automation.",
 };
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  );
-}
