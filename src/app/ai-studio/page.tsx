@@ -1,6 +1,6 @@
 export default function AIStudioPage() {
+  const tools = [
   {
-  title: "AI Assistant Builder",
     {
       title: "AI Assistant Builder",
       description:
