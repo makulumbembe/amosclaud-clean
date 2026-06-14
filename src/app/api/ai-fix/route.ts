@@ -1,49 +1,25 @@
-import OpenAI from "openai";
-import { NextResponse } from "next/server";
+const response = await client.responses.create({
+  model: "gpt-4.1-mini",
+  input: `
+You are an expert software engineer.
 
-export async function POST(req: Request) {
-  try {
-    const apiKey = process.env.OPENAI_API_KEY;
+Analyze the code and error message.
 
-    if (!apiKey) {
-      return NextResponse.json(
-        { success: false, error: "Missing OPENAI_API_KEY" },
-        { status: 500 }
-      );
-    }
+Rules:
+- Fix the code completely.
+- Return ONLY the corrected code.
+- Preserve the original language.
+- Do not explain the fix.
+- Do not use markdown code fences.
+- If multiple fixes are needed, apply all of them.
 
-    const { code, error, language } = await req.json();
-
-    if (!code) {
-      return NextResponse.json(
-        { success: false, error: "Code is required" },
-        { status: 400 }
-      );
-    }
-
-    const client = new OpenAI({ apiKey });
-
-    const response = await client.responses.create({
-      model: "gpt-4.1-mini",
-      input: `Fix this ${language || "code"}.
-
-Return only the corrected code. No markdown. No explanation.
+Language:
+${language}
 
 Error:
 ${error || "No error provided"}
 
 Code:
-${code}`,
-    });
-
-    return NextResponse.json({
-      success: true,
-      fixedCode: response.output_text || "",
-    });
-  } catch {
-    return NextResponse.json(
-      { success: false, error: "AI fix failed" },
-      { status: 500 }
-    );
-  }
-}
+${code}
+`,
+});
