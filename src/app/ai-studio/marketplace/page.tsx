@@ -1,23 +1,9 @@
-export default function MarketplacePage() {
+export default function Page() {
   return (
-    <main style={{ padding: "30px" }}>
-      <h1>Marketplace</h1>
-      <p>Browse tools, services, prompts, and creator products.</p>
-
-      <ul>
-        <li>
-          <a href="/marketplace/apps">Apps</a>
-        </li>
-        <li>
-          <a href="/marketplace/prompts">Prompts</a>
-        </li>
-        <li>
-          <a href="/marketplace/agents">AI Agents</a>
-        </li>
-        <li>
-          <a href="/marketplace/creator-tools">Creator Tools</a>
-        </li>
-      </ul>
+    <main style={{ background: "#000", color: "#fff", minHeight: "100vh", padding: 30 }}>
+      <a href="/settings" style={{ color: "#ffd400", fontSize: 24 }}>← Back to Settings</a>
+      <h1>This hub is connected</h1>
+      <p>This page is ready for Amosclaud features.</p>
     </main>
   );
 }
