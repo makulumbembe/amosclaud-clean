@@ -1,48 +1,65 @@
 export default function FeedPage() {
   return (
-    <main style={page}>
-      <header style={header}>
-        <a href="/" style={nav}>← Home</a>
-        <h1 style={logo}>AMOS<span style={pink}>FEED</span></h1>
-      </header>
+    <main
+      style={{
+        minHeight: "100vh",
+        background: "#000",
+        color: "#fff",
+        padding: "32px",
+      }}
+    >
+      <h1
+        style={{
+          fontSize: "48px",
+          fontWeight: "900",
+          marginBottom: "12px",
+        }}
+      >
+        Amosclaud Feed
+      </h1>
 
-      <section style={card}>
-        <h2>Amosclaud Feed</h2>
-        <p>See posts, updates, creators, and community activity.</p>
-      </section>
+      <p
+        style={{
+          fontSize: "22px",
+          color: "#ddd",
+          marginBottom: "24px",
+        }}
+      >
+        See posts, updates, creators, and community activity.
+      </p>
+
+      <a
+        href="/create-post"
+        style={{
+          display: "inline-block",
+          padding: "14px 22px",
+          background: "#ffd400",
+          color: "#000",
+          borderRadius: "12px",
+          textDecoration: "none",
+          fontWeight: "900",
+          marginBottom: "30px",
+        }}
+      >
+        + Create Post
+      </a>
+
+      <div
+        style={{
+          border: "2px solid #333",
+          borderRadius: "20px",
+          padding: "24px",
+          marginTop: "20px",
+        }}
+      >
+        <h2>Welcome to the Feed</h2>
+
+        <p>No posts loaded yet.</p>
+
+        <p>
+          Create your first post using the button above.
+        </p>
+      </div>
     </main>
   );
 }
-
-const page = {
-  minHeight: "100vh",
-  background: "#000",
-  color: "#fff",
-  padding: "2rem",
-};
-
-const header = {
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-};
-
-const nav = {
-  color: "#ffd400",
-  textDecoration: "none",
-};
-
-const logo = {
-  fontSize: "28px",
-};
-
-const pink = {
-  color: "#ff1493",
-};
-
-const card = {
-  marginTop: "2rem",
-  padding: "20px",
-  border: "1px solid #333",
-  borderRadius: "16px",
-};
