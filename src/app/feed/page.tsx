@@ -1,24 +1,9 @@
-export default function FeedPage() {
+export default function Page() {
   return (
-    <main style={{ padding: "40px", fontFamily: "Arial, sans-serif" }}>
-      <h1>Amosclaud Feed</h1>
-      <p>View posts, videos, creator updates, comments, likes, and shared content.</p>
-
-      <section>
-        <h2>Feed Tools</h2>
-        <ul>
-          <li>Create Post</li>
-          <li>Upload Photo or Video</li>
-          <li>Like and Comment</li>
-          <li>Share Content</li>
-          <li>Follow Creators</li>
-        </ul>
-      </section>
-
-      <nav>
-        <a href="/">Home</a> | <a href="/explore">Explore</a> |{" "}
-        <a href="/creator">Creator Hub</a> | <a href="/admin">Admin</a>
-      </nav>
+    <main style={{ background: "#000", color: "#fff", minHeight: "100vh", padding: 30 }}>
+      <a href="/settings" style={{ color: "#ffd400", fontSize: 24 }}>← Back to Settings</a>
+      <h1>This hub is connected</h1>
+      <p>This page is ready for Amosclaud features.</p>
     </main>
   );
 }
