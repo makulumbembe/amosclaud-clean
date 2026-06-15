@@ -1,115 +1,181 @@
-const pages: Record<string, { title: string; description: string; tools: string[] }> = {
+type Hub = {
+  title: string;
+  description: string;
+  actions: string[];
+};
+
+const hubs: Record<string, Hub> = {
   "ai-chat-assistant": {
     title: "AI Chat Assistant",
-    description: "Chat with Amos AI and get help operating Amosclaud.",
-    tools: ["Ask Amos AI", "Fix problems", "Plan content", "Build pages"],
+    description: "Chat with Amos AI and operate Amosclaud tools.",
+    actions: ["Ask Amos AI", "Fix an issue", "Plan a project", "Generate ideas"],
+  },
+  "ai-assistant": {
+    title: "AI Assistant",
+    description: "Your Amosclaud AI assistant hub.",
+    actions: ["Chat", "Generate", "Fix", "Operate"],
+  },
+  "ai-fix": {
+    title: "AI Fix",
+    description: "Fix errors, broken pages, routes, and deployments.",
+    actions: ["Fix code", "Fix deployment", "Fix route", "Clean files"],
+  },
+  "business-assistant": {
+    title: "Business Assistant",
+    description: "Plan business, sales, marketing, and support.",
+    actions: ["Business plan", "Sales help", "Marketing copy", "Customer support"],
+  },
+  "creator-dashboard": {
+    title: "Creator Dashboard",
+    description: "Manage content, tools, products, and growth.",
+    actions: ["Posts", "Products", "Analytics", "Earnings"],
+  },
+  "monetization": {
+    title: "Monetization",
+    description: "Earn from content, subscriptions, tools, and marketplace products.",
+    actions: ["Creator income", "Subscriptions", "Paid tools", "Tips"],
+  },
+  "payments": {
+    title: "Payments",
+    description: "Manage payouts, transactions, invoices, and payment methods.",
+    actions: ["Add payment", "View payouts", "Invoices", "Transactions"],
+  },
+  "subscriptions": {
+    title: "Subscriptions",
+    description: "Manage memberships and recurring access.",
+    actions: ["Plans", "Members", "Billing", "Access"],
   },
   "message-requests": {
     title: "Message Requests",
-    description: "Manage people who want to message you.",
-    tools: ["Accept request", "Decline request", "Block user"],
+    description: "Review people who want to message you.",
+    actions: ["Accept", "Decline", "Block", "View request"],
   },
   "who-can-message-me": {
     title: "Who Can Message Me",
-    description: "Control who is allowed to send you messages.",
-    tools: ["Everyone", "Followers", "Verified users", "No one"],
+    description: "Control who can send you messages.",
+    actions: ["Everyone", "Followers", "Verified", "No one"],
   },
   "read-receipts": {
     title: "Read Receipts",
-    description: "Turn message read receipts on or off.",
-    tools: ["Read receipts on", "Read receipts off"],
+    description: "Control whether people can see when you read messages.",
+    actions: ["Turn on", "Turn off"],
   },
   "online-status": {
     title: "Online Status",
-    description: "Control whether people can see when you are active.",
-    tools: ["Show online", "Hide online"],
+    description: "Control whether people can see when you are online.",
+    actions: ["Show online", "Hide online"],
   },
   "push-notifications": {
     title: "Push Notifications",
     description: "Manage alerts for messages, likes, followers, and AI updates.",
-    tools: ["Messages", "Likes", "Followers", "AI updates"],
+    actions: ["Messages", "Likes", "Followers", "AI updates"],
   },
   "blocked-chats": {
     title: "Blocked Chats",
-    description: "View and manage blocked chat conversations.",
-    tools: ["Blocked chats", "Unblock chat"],
+    description: "View blocked chat conversations.",
+    actions: ["View blocked", "Unblock"],
   },
   "archived-chats": {
     title: "Archived Chats",
-    description: "View old or hidden conversations.",
-    tools: ["Open archive", "Restore chat"],
+    description: "View hidden or old conversations.",
+    actions: ["Open archive", "Restore chat"],
   },
-  "creator-dashboard": {
-    title: "Creator Dashboard",
-    description: "Manage your posts, tools, marketplace items, and earnings.",
-    tools: ["Posts", "Products", "Analytics", "Earnings"],
+  "username": {
+    title: "Username",
+    description: "Change your Amosclaud username.",
+    actions: ["Edit username", "Save username"],
   },
-  "monetization": {
-    title: "Monetization",
-    description: "Earn money from content, AI tools, subscriptions, and products.",
-    tools: ["Creator income", "Subscriptions", "Paid tools", "Tips"],
+  "email-phone": {
+    title: "Email & Phone",
+    description: "Manage your email address and phone number.",
+    actions: ["Edit email", "Edit phone", "Verify"],
   },
-  "payments": {
-    title: "Payments",
-    description: "Manage payment methods, payouts, and transactions.",
-    tools: ["Add payment", "Payouts", "Invoices", "Transactions"],
+  "password": {
+    title: "Password",
+    description: "Change or secure your password.",
+    actions: ["Change password", "Reset password"],
   },
-  "subscriptions": {
-    title: "Subscriptions",
-    description: "Manage membership plans and recurring access.",
-    tools: ["Plans", "Members", "Billing", "Access"],
+  "verification": {
+    title: "Verification",
+    description: "Verify your Amosclaud account.",
+    actions: ["Start verification", "Upload document", "Check status"],
   },
-  "ai-fix": {
-    title: "AI Fix",
-    description: "Fix errors, deployment problems, and broken code.",
-    tools: ["Fix build", "Clean files", "Debug route", "Deployment help"],
+  "edit-profile": {
+    title: "Edit Profile",
+    description: "Update your profile name, bio, avatar, and links.",
+    actions: ["Edit name", "Edit bio", "Change avatar", "Save profile"],
   },
-  "business-assistant": {
-    title: "Business Assistant",
-    description: "Use Amos AI for business planning, sales, and support.",
-    tools: ["Business plan", "Marketing", "Customer support", "Sales"],
+  "help-center": {
+    title: "Help Center",
+    description: "Get help using Amosclaud.",
+    actions: ["Account help", "AI help", "Payments help", "Report issue"],
+  },
+  "report-problem": {
+    title: "Report a Problem",
+    description: "Send an issue to Amosclaud support.",
+    actions: ["Report bug", "Report abuse", "Send feedback"],
+  },
+  "terms": {
+    title: "Terms",
+    description: "Read Amosclaud platform terms.",
+    actions: ["View terms"],
+  },
+  "privacy-policy": {
+    title: "Privacy Policy",
+    description: "Read Amosclaud privacy rules.",
+    actions: ["View privacy policy"],
   },
 };
 
-export default function HubPage({ params }: { params: { slug: string } }) {
-  const pageData = pages[params.slug] || {
-    title: formatTitle(params.slug),
-    description: "This Amosclaud hub is ready to be connected.",
-    tools: ["Open tool", "Manage settings", "Coming soon"],
-  };
+export default async function MainHubPage({
+  params,
+}: {
+  params: Promise<{ slug?: string[] }>;
+}) {
+  const resolved = await params;
+  const slug = resolved.slug?.join("/") || "hub";
+  const key = resolved.slug?.[resolved.slug.length - 1] || "hub";
+
+  const hub =
+    hubs[key] || {
+      title: makeTitle(key),
+      description: `This Amosclaud route is connected: /${slug}`,
+      actions: ["Open", "Generate", "Manage", "Coming soon"],
+    };
 
   return (
     <main style={page}>
       <header style={header}>
         <a href="/settings" style={back}>←</a>
-        <h1 style={logo}>AMOS<span>CLAUD</span></h1>
+        <h1 style={brand}>AMOS<span style={pink}>CLAUD</span></h1>
         <a href="/profile" style={profile}>Profile</a>
       </header>
 
       <section style={card}>
-        <h2 style={title}>{pageData.title}</h2>
-        <p style={desc}>{pageData.description}</p>
+        <p style={route}>/{slug}</p>
+        <h2 style={title}>{hub.title}</h2>
+        <p style={description}>{hub.description}</p>
 
         <div style={grid}>
-          {pageData.tools.map((tool) => (
-            <button key={tool} style={button}>
-              {tool}
+          {hub.actions.map((action) => (
+            <button key={action} style={button}>
+              {action}
             </button>
           ))}
         </div>
 
         <textarea
-          placeholder={`Write something for ${pageData.title}...`}
+          placeholder={`Write what you want to do in ${hub.title}...`}
           style={textarea}
         />
 
-        <button style={mainButton}>Run Amos AI</button>
+        <button style={runButton}>Run Amos AI</button>
       </section>
     </main>
   );
 }
 
-function formatTitle(slug: string) {
+function makeTitle(slug: string) {
   return slug
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
@@ -140,10 +206,14 @@ const back = {
   fontWeight: 900,
 };
 
-const logo = {
+const brand = {
   margin: 0,
   fontSize: 30,
   fontWeight: 900,
+};
+
+const pink = {
+  color: "#ff008c",
 };
 
 const profile = {
@@ -160,12 +230,17 @@ const card = {
   background: "#111",
 };
 
-const title = {
-  fontSize: 38,
-  marginTop: 0,
+const route = {
+  color: "#ffd400",
+  fontWeight: 800,
 };
 
-const desc = {
+const title = {
+  fontSize: 40,
+  margin: "10px 0",
+};
+
+const description = {
   fontSize: 22,
   lineHeight: 1.5,
   color: "#ddd",
@@ -196,7 +271,7 @@ const textarea = {
   borderRadius: 14,
 };
 
-const mainButton = {
+const runButton = {
   marginTop: 18,
   width: "100%",
   padding: 18,
