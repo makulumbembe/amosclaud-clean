@@ -1,9 +1,13 @@
-export default function Page() {
+export default function FeedPage() {
   return (
-    <main style={{ background: "#000", color: "#fff", minHeight: "100vh", padding: 30 }}>
-      <a href="/settings" style={{ color: "#ffd400", fontSize: 24 }}>← Back to Settings</a>
-      <h1>This hub is connected</h1>
-      <p>This page is ready for Amosclaud features.</p>
+    <main style={{ minHeight: "100vh", background: "#000", color: "#fff", padding: "2rem" }}>
+      <h1>Amosclaud Feed</h1>
+      <p>See posts, updates, creators, and community activity.</p>
+
+      <div style={{ marginTop: "24px", padding: "20px", border: "1px solid #333", borderRadius: "16px" }}>
+        <h2>Welcome to the Feed</h2>
+        <p>No posts loaded yet.</p>
+      </div>
     </main>
   );
 }
