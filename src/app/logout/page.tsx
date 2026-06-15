@@ -1,9 +1,32 @@
-export default function Page() {
+export default function LogoutPage() {
   return (
-    <main style={{ background: "#000", color: "#fff", minHeight: "100vh", padding: 30 }}>
-      <a href="/settings" style={{ color: "#ffd400", fontSize: 24 }}>← Back to Settings</a>
-      <h1>This hub is connected</h1>
-      <p>This page is ready for Amosclaud features.</p>
+    <main
+      style={{
+        minHeight: "100vh",
+        background: "#000",
+        color: "#fff",
+        padding: "2rem",
+      }}
+    >
+      <h1>Logout</h1>
+
+      <p>You have been signed out of Amosclaud.</p>
+
+      <a
+        href="/login"
+        style={{
+          display: "inline-block",
+          marginTop: "20px",
+          padding: "12px 20px",
+          background: "#ffd400",
+          color: "#000",
+          textDecoration: "none",
+          borderRadius: "10px",
+          fontWeight: "bold",
+        }}
+      >
+        Login Again
+      </a>
     </main>
   );
 }
