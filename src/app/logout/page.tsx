@@ -1,37 +1,9 @@
-"use client";
-
-export default function LogoutPage() {
-  async function logout() {
-    await fetch("/api/auth/logout", {
-      method: "POST",
-    });
-
-    window.location.href = "/";
-  }
-
+export default function Page() {
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        background: "#000",
-        color: "#fff",
-        padding: "24px",
-      }}
-    >
-      <h1>Logout</h1>
-
-      <button
-        onClick={logout}
-        style={{
-          padding: "12px 24px",
-          background: "#ff006e",
-          color: "#fff",
-          border: "none",
-          fontWeight: "bold",
-        }}
-      >
-        LOGOUT
-      </button>
+    <main style={{ background: "#000", color: "#fff", minHeight: "100vh", padding: 30 }}>
+      <a href="/settings" style={{ color: "#ffd400", fontSize: 24 }}>← Back to Settings</a>
+      <h1>This hub is connected</h1>
+      <p>This page is ready for Amosclaud features.</p>
     </main>
   );
 }
