@@ -1,40 +1,9 @@
-export default function ExplorePage() {
+export default function Page() {
   return (
-    <main style={{ padding: "40px", fontFamily: "Arial, sans-serif" }}>
-      <h1>Amosclaud Explore</h1>
-
-      <p>
-        Discover creators, trending content, services, communities,
-        and featured projects.
-      </p>
-
-      <h2>Explore Categories</h2>
-
-      <ul>
-        <li>🔥 Trending Posts</li>
-        <li>🎬 Videos</li>
-        <li>📷 Photos</li>
-        <li>🎮 Gaming</li>
-        <li>🎵 Music</li>
-        <li>💻 Technology</li>
-        <li>🤖 Artificial Intelligence</li>
-        <li>🛒 Marketplace Services</li>
-      </ul>
-
-      <h2>Featured Creators</h2>
-
-      <ul>
-        <li>Top Creators</li>
-        <li>New Creators</li>
-        <li>Verified Creators</li>
-      </ul>
-
-      <nav>
-        <a href="/">Home</a> |{" "}
-        <a href="/feed">Feed</a> |{" "}
-        <a href="/creator">Creator Hub</a> |{" "}
-        <a href="/marketplace">Marketplace</a>
-      </nav>
+    <main style={{ background: "#000", color: "#fff", minHeight: "100vh", padding: 30 }}>
+      <a href="/settings" style={{ color: "#ffd400", fontSize: 24 }}>← Back to Settings</a>
+      <h1>This hub is connected</h1>
+      <p>This page is ready for Amosclaud features.</p>
     </main>
   );
 }
