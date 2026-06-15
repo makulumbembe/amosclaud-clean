@@ -1,9 +1,8 @@
-export default function Page() {
+export default function ImagePage() {
   return (
-    <main style={{ background: "#000", color: "#fff", minHeight: "100vh", padding: 30 }}>
-      <a href="/settings" style={{ color: "#ffd400", fontSize: 24 }}>← Back to Settings</a>
-      <h1>This hub is connected</h1>
-      <p>This page is ready for Amosclaud features.</p>
+    <main style={{ padding: "2rem", background: "#000", color: "#fff", minHeight: "100vh" }}>
+      <h1>AI Image Studio</h1>
+      <p>Create, edit, and manage AI-generated images.</p>
     </main>
   );
 }
