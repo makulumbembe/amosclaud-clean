@@ -1,24 +1,9 @@
-export default function AdminPage() {
+export default function Page() {
   return (
-    <main style={{ padding: "40px", fontFamily: "Arial, sans-serif" }}>
-      <h1>Amosclaud Admin Hub</h1>
-      <p>Manage users, creators, content, marketplace, and platform tools.</p>
-
-      <section>
-        <h2>Management</h2>
-        <ul>
-          <li>User Management</li>
-          <li>Creator Review</li>
-          <li>Content Moderation</li>
-          <li>Marketplace Control</li>
-          <li>Platform Analytics</li>
-        </ul>
-      </section>
-
-      <nav>
-        <a href="/">Home</a> | <a href="/feed">Feed</a> |{" "}
-        <a href="/visitors">Visitors</a>
-      </nav>
+    <main style={{ background: "#000", color: "#fff", minHeight: "100vh", padding: 30 }}>
+      <a href="/settings" style={{ color: "#ffd400", fontSize: 24 }}>← Back to Settings</a>
+      <h1>This hub is connected</h1>
+      <p>This page is ready for Amosclaud features.</p>
     </main>
   );
 }
